@@ -45,7 +45,7 @@ class CigaretteService implements OrderInterface
         $total = $this->totalPrice = $this->getAmount() * self::COST;
         if ($total > $this->getPrice()) {
             $additionalCharge = round($total - $this->getPrice(), 2);
-            $error = "Required amount for {$this->getAmount()} pack(s) is $total. Please, charge additionally ${additionalCharge}€.";
+            $error = "Required amount for {$this->getAmount()} pack(s) is ${total}€. Please, charge additionally ${additionalCharge}€.";
             throw new \Exception($error);
         }
     }
@@ -58,7 +58,10 @@ class CigaretteService implements OrderInterface
     public function processOrder()
     {
         $packageCost = self::COST;
-        $result = "You bought {$this->getAmount()} packs of cigarettes for {$this->getTotalPrice()}€, each for ${packageCost}€";
+        $result = "You bought {$this->getAmount()} pack(s) of cigarettes for {$this->getTotalPrice()}€";
+        if ($this->getAmount() > 1) {
+            $result .= ", each for ${packageCost}€";
+        }
         if ($this->getExchange() > 0) {
             $result .= "\n\nYour exchange:\n\n";
             $result .= "+-------+-------+\n";
