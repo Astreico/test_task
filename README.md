@@ -3,7 +3,7 @@ Installation:
 ```
 git clone https://github.com/Astreico/test_task.git
 ```
-2) run:
+2) checkout to project dir and run:
 ```
 composer dump-autoload
 ```
