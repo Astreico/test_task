@@ -1,0 +1,12 @@
+{
+    "name": "test/limango",
+    "description": "test task",
+    "require": {
+        "php": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
